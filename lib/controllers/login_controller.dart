@@ -44,20 +44,49 @@ class LoginController extends GetxController {
         passwordController.text.trim() != '123456') {
       Get.dialog(
         AlertDialog(
-          actions: [
-            RaisedButton(
-              onPressed: () {
-                Get.back();
-              },
-              child: Text('Close'),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          content: Padding(
+            padding: const EdgeInsets.only(
+              top: 10,
+              left: 10,
+              right: 10,
             ),
-          ],
-          title: Text('Error'),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Email or Password incorrect',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                RaisedButton(
+                  color: Colors.white,
+                  shape: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  onPressed: () {
+                    Get.back();
+                  },
+                  child: Text(
+                    'Close',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       );
     } else {
       isSuccess.value = true;
-      // Get.toNamed('/home');
       loginInfo.value.email = emailController.text;
       loginInfo.value.password = passwordController.text;
       Get.offAndToNamed('/home');
