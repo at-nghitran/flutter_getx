@@ -14,11 +14,6 @@ class LoginController extends GetxController {
   TextEditingController passwordController;
 
   @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
   void onInit() {
     emailController = TextEditingController();
     passwordController = TextEditingController();
@@ -67,7 +62,6 @@ class LoginController extends GetxController {
       loginInfo.value.password = passwordController.text;
       Get.offAndToNamed('/home');
     }
-    update();
   }
 
   checkDisable() {

@@ -18,10 +18,9 @@ class HomePage extends StatelessWidget {
             child: Center(
               child: OutlineButton(
                 onPressed: () {
-                  // Get.offNamedUntil('/login', (_) => true);
-                  Get.offNamed('/login');
+                  Get.offAllNamed('/login');
                 },
-                child: Text('Close'),
+                child: Text('Logout'),
               ),
             ),
           ),
