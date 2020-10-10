@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:learning/models/login_info.dart';
+import 'package:learning/views/pages/home.dart';
 
 class LoginController extends GetxController {
   var loginInfo = LoginInfo(
@@ -89,7 +90,7 @@ class LoginController extends GetxController {
       isSuccess.value = true;
       loginInfo.value.email = emailController.text;
       loginInfo.value.password = passwordController.text;
-      Get.offAndToNamed('/home');
+      Get.off(HomePage());
     }
   }
 
