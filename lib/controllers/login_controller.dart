@@ -6,10 +6,7 @@ import 'package:learning/views/components/custom_alert.dart';
 import 'package:learning/views/pages/home.dart';
 
 class LoginController extends GetxController {
-  final loginInfo = LoginInfo(
-    email: '',
-    password: '',
-  ).obs;
+  final loginInfo = LoginInfo().obs;
   final isSuccess = false.obs;
   final isDisabled = true.obs;
   TextEditingController emailController;
