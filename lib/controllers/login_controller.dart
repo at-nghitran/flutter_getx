@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:learning/models/error.dart';
 import 'package:learning/models/login_info.dart';
 
 class LoginController extends GetxController {
@@ -9,11 +8,8 @@ class LoginController extends GetxController {
     email: '',
     password: '',
   ).obs;
-  LoginError error;
   var isSuccess = false.obs;
   var isDisabled = true.obs;
-  var isError = false.obs;
-  var email = ''.obs;
   TextEditingController emailController;
   TextEditingController passwordController;
 

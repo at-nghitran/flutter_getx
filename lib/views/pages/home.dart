@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learning/controllers/login.dart';
+import 'package:learning/controllers/login_controller.dart';
 import 'package:learning/views/components/drawer.dart';
 
 class HomePage extends StatelessWidget {

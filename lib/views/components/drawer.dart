@@ -16,6 +16,8 @@ class AppDrawer extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 color: Colors.black45,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 child: Text('Profile'),
               ),
               onTap: () {
