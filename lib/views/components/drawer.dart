@@ -21,6 +21,7 @@ class AppDrawer extends StatelessWidget {
                 child: Text('Profile'),
               ),
               onTap: () {
+                Get.back();
                 Get.toNamed('/profile');
               },
             )

@@ -8,6 +8,7 @@ class ProfilePage extends StatelessWidget {
   final LoginController _loginController = Get.find();
   @override
   Widget build(BuildContext context) {
+    debugPrint(context.mediaQueryPadding.toString());
     return Scaffold(
       appBar: AppBar(),
       body: Container(
@@ -15,7 +16,7 @@ class ProfilePage extends StatelessWidget {
         child: Column(
           children: [
             Text('${_loginController.loginInfo.value.email}'),
-            Text('${_loginController.loginInfo.value.password}')
+            Text('${_loginController.loginInfo.value.password}'),
           ],
         ),
       ),
