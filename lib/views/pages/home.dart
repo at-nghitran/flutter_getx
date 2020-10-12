@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learning/controllers/home_controller.dart';
 import 'package:learning/controllers/login_controller.dart';
 import 'package:learning/views/components/drawer.dart';
 
@@ -13,6 +14,7 @@ class HomePage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Obx(() => Text('${Get.find<HomeController>().emailLength}')),
           Text('${_loginController.loginInfo.value.email}'),
           Container(
             child: Center(

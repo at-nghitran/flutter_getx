@@ -39,16 +39,21 @@ class LoginController extends GetxController {
   }
 
   _validation() {
+    if (!emailController.text.trim().isEmail) {
+      return Get.dialog(
+        CustomAlertDialog(title: 'Email is not correct format'),
+      );
+    }
     if (emailController.text.trim() != 'training@gmail.com' ||
         passwordController.text.trim() != '123456') {
-      Get.dialog(
-        CustomAlertDialog(),
+      return Get.dialog(
+        CustomAlertDialog(title: 'Email or Password incorrect'),
       );
     } else {
       isSuccess.value = true;
       loginInfo.value.email = emailController.text;
       loginInfo.value.password = passwordController.text;
-      Get.off(HomePage());
+      return Get.offNamed('/home');
     }
   }
 

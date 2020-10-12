@@ -3,44 +3,43 @@ import 'package:get/state_manager.dart';
 import 'package:learning/controllers/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
-  final LoginController _loginController = Get.put(LoginController());
+  // final LoginController _loginController = Get.find<LoginController>();
   @override
   Widget build(BuildContext context) {
-    debugPrint('Login Build');
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
         padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Obx(
-          () => Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomInput(
-                controller: _loginController.emailController,
-                hintText: 'Email',
-                prefixIcon: Icons.email,
-                onChange: (value) {
-                  _loginController.onEmailChange();
-                },
-              ),
-              SizedBox(height: 30),
-              CustomInput(
-                controller: _loginController.passwordController,
-                hintText: 'Password',
-                prefixIcon: Icons.lock,
-                obscureText: true,
-                onChange: (value) {
-                  _loginController.onPasswordChange();
-                },
-              ),
-              SizedBox(height: 50),
-              OutlineButton(
-                onPressed: _loginController.isDisabled.value
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomInput(
+              controller: Get.find<LoginController>().emailController,
+              hintText: 'Email',
+              prefixIcon: Icons.email,
+              onChange: (value) {
+                Get.find<LoginController>().onEmailChange();
+              },
+            ),
+            SizedBox(height: 30),
+            CustomInput(
+              controller: Get.find<LoginController>().passwordController,
+              hintText: 'Password',
+              prefixIcon: Icons.lock,
+              obscureText: true,
+              onChange: (value) {
+                Get.find<LoginController>().onPasswordChange();
+              },
+            ),
+            SizedBox(height: 50),
+            Obx(
+              () => OutlineButton(
+                onPressed: Get.find<LoginController>().isDisabled.value
                     ? null
                     : () {
                         FocusScope.of(context).unfocus();
-                        _loginController.onLogin();
+                        Get.find<LoginController>().onLogin();
                       },
                 child: Text(
                   'Login',
@@ -54,8 +53,8 @@ class LoginPage extends StatelessWidget {
                 ),
                 color: Colors.red,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

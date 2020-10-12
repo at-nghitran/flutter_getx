@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomAlertDialog extends StatelessWidget {
+  final String title;
   const CustomAlertDialog({
     Key key,
+    this.title,
   }) : super(key: key);
 
   @override
@@ -22,7 +24,7 @@ class CustomAlertDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Email or Password incorrect',
+              title,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 17,
