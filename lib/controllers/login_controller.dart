@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import 'package:learning/models/login_info.dart';
 import 'package:learning/views/components/custom_alert.dart';
-import 'package:learning/views/pages/home.dart';
 
 class LoginController extends GetxController {
   final loginInfo = LoginInfo().obs;
