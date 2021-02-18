@@ -9,19 +9,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - users: actions/checkout@v1
-    - users: actions/setup-java@v1
-      with:
-        java-version: '12.x'
-    - users: subosito/flutter-action@v1
-      with:
-        channel: 'stable'
-    - run: flutter pub get
-    - run: flutter format --set-exit-if-changed .
-    - run: flutter analyze .
-    - run: flutter test
-    - run: flutter build apk
-      uses: actions/upload-artifact@master
-      with:
-        name: apk-release
-        path: build/app/outputs/bundle/release/app-release.apk
+      - users: actions/checkout@v1
+      - users: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - users: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+      - run: flutter pub get
+      - run: flutter format --set-exit-if-changed .
+      - run: flutter analyze .
+      - run: flutter test
+      - run: flutter build apk
+        uses: actions/upload-artifact@master
+        with:
+          name: apk-release
+          path: build/app/outputs/bundle/release/app-release.apk
