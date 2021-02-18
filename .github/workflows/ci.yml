@@ -1,6 +1,4 @@
 name: CI
-
-# Run this workflow every time a new commit pushed to your repository
 on:
   push:
   pull_request:
@@ -31,6 +29,7 @@ jobs:
         run: flutter test
       - name: Flutter build
         run: flutter build apk
+        - name: Flutter upload
         uses: actions/upload-artifact@master
         with:
           name: apk-release
