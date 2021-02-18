@@ -10,27 +10,27 @@ jobs:
     name: Build Application
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Setup Java
-      uses: actions/setup-java@v2
-      with:
-        java-version: '12.x'
-    - name: Install Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        channel: 'stable'
-    - name: Pub get
-      run: flutter pub get
-    - name: Flutter format
-      run: flutter format --set-exit-if-changed .
-    - name: Flutter analyze
-      run: flutter analyze .
-    - name: Flutter test
-      run: flutter test
-    - name: Flutter build
-      run: flutter build apk
-      uses: actions/upload-artifact@master
-      with:
-        name: apk-release
-        path: build/app/outputs/bundle/release/app-release.apk
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '12.x'
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      - name: Pub get
+        run: flutter pub get
+      - name: Flutter format
+        run: flutter format --set-exit-if-changed .
+      - name: Flutter analyze
+        run: flutter analyze .
+      - name: Flutter test
+        run: flutter test
+      - name: Flutter build
+        run: flutter build apk
+        uses: actions/upload-artifact@master
+        with:
+          name: apk-release
+          path: build/app/outputs/bundle/release/app-release.apk
